@@ -1,6 +1,5 @@
-from flask import Flask, render_template, url_for, send_from_directory, jsonify, request
+from flask import Flask, render_template, jsonify, request
 from pynput import keyboard
-from werkzeug.utils import redirect
 import time
 
 app = Flask(__name__)
@@ -61,7 +60,7 @@ def home():
 
 def on_press(key):
     global time_left
-    time_left = 10
+    key = 10
 
 
 listener = keyboard.Listener(on_press=on_press)
