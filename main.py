@@ -60,7 +60,7 @@ def home():
 
 def on_press(key):
     global time_left
-    key = 10
+    time_left = 10
 
 
 listener = keyboard.Listener(on_press=on_press)
