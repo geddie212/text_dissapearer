@@ -1,5 +1,4 @@
 boto==2.49.0
-python==3.10.5
 certifi==2021.10.8
 charset-normalizer==2.0.6
 click==8.0.2
