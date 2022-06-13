@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-# from pynput import keyboard
+import keyboard
 import time
 
 app = Flask(__name__)
@@ -63,11 +63,8 @@ def on_press(key):
     time_left = 10
 
 
-# listener = keyboard.Listener(on_press=on_press)
-
 if __name__ == '__main__':
 
     while True:
-        # listener.start()
+        keyboard.on_press(on_press)
         app.run(debug=True)
-        # listener.join()
