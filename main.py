@@ -1,11 +1,10 @@
 from flask import Flask, render_template, jsonify, request
 import keyboard
 import time
-import os
 
 app = Flask(__name__)
 
-time_left = os.environ.get('TIMER')
+time_left = 10
 timer_started = False
 timer_clicked = False
 
@@ -13,10 +12,10 @@ timer_clicked = False
 def countdown():
     global time_left
     global timer_started
-    print('countdown')
     if int(time_left) != 0 and timer_started:
         time.sleep(1)
         time_left = int(time_left) - 1
+        print(f'time left: {time_left}')
         countdown()
 
 
@@ -25,7 +24,7 @@ def show_result():
     global time_left
     global timer_started
     global timer_clicked
-    time_left = os.environ.get('TIMER')
+    time_left = 10
     timer_started = False
     text = request.form['text-box']
     return render_template('result.html', text=text, timer_clicked=timer_clicked)
@@ -44,7 +43,7 @@ def start():
     global timer_clicked
     timer_clicked = True
     timer_started = True
-    time_left = os.environ.get('TIMER')
+    time_left = 10
     countdown()
     return render_template('start.html')
 
@@ -56,13 +55,13 @@ def home():
     global timer_clicked
     timer_clicked = False
     timer_started = False
-    time_left = os.environ.get('TIMER')
+    time_left = 10
     return render_template('index.html', time_left=time_left)
 
 
 def on_press(key):
     global time_left
-    time_left = os.environ.get('TIMER')
+    time_left = 10
 
 
 if __name__ == '__main__':
