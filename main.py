@@ -13,7 +13,7 @@ timer_clicked = False
 def countdown():
     global time_left
     global timer_started
-    if time_left != 0 and timer_started:
+    if int(time_left) != 0 and timer_started:
         time.sleep(1)
         time_left = int(time_left) - 1
         countdown()
