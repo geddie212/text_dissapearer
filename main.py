@@ -64,7 +64,6 @@ def on_press(key):
 
 
 if __name__ == '__main__':
+    keyboard.on_press(on_press)
+    app.run(debug=True)
 
-    while True:
-        keyboard.on_press(on_press)
-        app.run(debug=True)
