@@ -36,7 +36,7 @@
                 var intervalID = setInterval(update_values,500);
                 $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
                 function update_values() {
-                        $.getJSON($SCRIPT_ROOT + '/progress',
+                        $.getJSON($SCRIPT_ROOT + '{{ url_for('progress') }}',
 
                     function(data) {
                         $('#result').text(data.result);
